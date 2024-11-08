@@ -1,0 +1,15 @@
+name: Spelling Check
+
+on: [push, pull_request]
+
+jobs:
+  spelling:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install codespell
+        run: pip install codespell
+
+      - name: Run codespell
+        run: codespell --config .codespellrc
